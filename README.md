@@ -5,9 +5,14 @@ Linux based parallel data runner (multi threads, multi Process)
 
 cc datasplit.c -o datasplit
 
-testdata.txt | ./datasplit -n x "inst1 -> inst2"
-testdata.txt | ./datasplit -n x "inst1 -> inst2 -> inst3"
+cat testdata.txt | ./datasplit -n x "inst1 -> inst2"
 
+cat testdata.txt | ./datasplit -n x "inst1 -> inst2 -> inst3"
+
+Exccution example
+cat largefile.txt | ./datasplit -n 4 "grep abc -> grep 123 -> awk '{print $1}' -> sort -u -> wc -l"
+
+(Because this program uses stdin, you may need to use pipe redirection for stdin)
 ```
 -n option(integer x) : number of threads. Essential option.
 In this execution above, there will be created x threads that process input data.
@@ -23,5 +28,4 @@ Those strings goes into x threads to be processed.
 The x threads will create new processes and replace excutables with inst1, inst2,... by exec() function call.
 Then the data flows are like this 
 : stdin -> main thread -> i th thread of x threads -> process 1(inst1) -> process 2(inst2) -> i th thread of x threads -> printer thread -> stdout
-
 ```
