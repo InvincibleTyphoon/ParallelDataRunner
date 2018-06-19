@@ -30,6 +30,10 @@ In this execution above, there will be created x threads that process input data
 And one more thread is created, that prints out the result of each threads.
 Totally x+1 threads will be created.
 
+'->' means pipe redirection.
+"inst1 -> inst2" means
+stdout of inst1 to stdin of inst2
+
 inst1, inst2, inst3 are Linux commands like sort -u, grep 123, and so on.
 "inst1 -> inst2 -> inst3" means stdin inst1's stdout will be redirected to inst2, and inst2's stdout will be redirected to inst3
 
