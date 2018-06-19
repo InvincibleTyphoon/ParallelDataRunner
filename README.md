@@ -13,6 +13,8 @@ Exccution example
 cat largefile.txt | ./datasplit -n 4 "grep abc -> grep 123 -> awk '{print $1}' -> sort -u -> wc -l"
 
 (Because this program uses stdin, you may need to use pipe redirection for stdin)
+
+# Program description
 ```
 -n option(integer x) : number of threads. Essential option.
 In this execution above, there will be created x threads that process input data.
