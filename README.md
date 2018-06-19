@@ -3,15 +3,21 @@ Linux based parallel data runner (multi threads, multi Process)
 
 # How to use
 
-cc datasplit.c -o datasplit
+compile 
 
-cat testdata.txt | ./datasplit -n x "inst1 -> inst2"
+- cc datasplit.c -o datasplit
 
-cat testdata.txt | ./datasplit -n x "inst1 -> inst2 -> inst3"
+
+excution
+
+- cat testdata.txt | ./datasplit -n x "inst1 -> inst2"
+
+- cat testdata.txt | ./datasplit -n x "inst1 -> inst2 -> inst3"
+
 
 Exccution example
 
-cat largefile.txt | ./datasplit -n 4 "grep abc -> grep 123 -> awk '{print $1}' -> sort -u -> wc -l"
+- cat largefile.txt | ./datasplit -n 4 "grep abc -> grep 123 -> awk '{print $1}' -> sort -u -> wc -l"
 
 (Because this program uses stdin, you may need to use pipe redirection for stdin)
 
