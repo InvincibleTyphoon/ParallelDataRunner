@@ -1,6 +1,8 @@
 # ParallelDataRunner
 Linux based parallel data runner (multi threads, multi Process)
 
+Developed on Ubuntu 16.04.3
+
 # How to use
 
 compile 
