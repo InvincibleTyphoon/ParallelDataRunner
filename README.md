@@ -10,6 +10,7 @@ cat testdata.txt | ./datasplit -n x "inst1 -> inst2"
 cat testdata.txt | ./datasplit -n x "inst1 -> inst2 -> inst3"
 
 Exccution example
+
 cat largefile.txt | ./datasplit -n 4 "grep abc -> grep 123 -> awk '{print $1}' -> sort -u -> wc -l"
 
 (Because this program uses stdin, you may need to use pipe redirection for stdin)
