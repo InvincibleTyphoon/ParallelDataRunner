@@ -35,7 +35,7 @@ Totally x+1 threads will be created.
 stdout of inst1 to stdin of inst2
 
 inst1, inst2, inst3 are Linux commands like sort -u, grep 123, and so on.
-"inst1 -> inst2 -> inst3" means stdin inst1's stdout will be redirected to inst2, and inst2's stdout will be redirected to inst3
+"inst1 -> inst2 -> inst3" means inst1's stdout will be redirected to inst2's stdin, and inst2's stdout will be redirected to inst3
 
 On execution of this program, initially there will be created x threads that process data, and 1 thread that print data.
 The main thread that created all these threads, will get stdin intput and split the input with '\n' for many strings.
