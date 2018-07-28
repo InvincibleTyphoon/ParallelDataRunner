@@ -39,7 +39,6 @@ void que_init(Que * que){
 }
 
 void que_push(Que * que, char * string){
-//	printf("que push entered\n");
 	pthread_mutex_lock(&mutex);
 	if(que->tail >= que->size){
 		que->size*=2;
@@ -78,6 +77,8 @@ void error_handling(char message[]){
 
 int isthreadCreated = 0;
 int receiverRun = 1;
+
+// function for receiver thread
 void* receiverFunc(void * a){
 	char * ptr;
 	isthreadCreated = 1;
@@ -97,6 +98,7 @@ void* receiverFunc(void * a){
 	return NULL;
 }
 
+//create processes passed by argument of the prgoram and connect them with pipe redirection.
 void createProcessesForWorker(int argvIdx, int toThisProcess,int pipeToWorker){
 	int pfd[2];
 	int pid;
@@ -132,8 +134,8 @@ void createProcessesForWorker(int argvIdx, int toThisProcess,int pipeToWorker){
 	}
 }
 
+// function for worker thread
 void* workerFunc(void * a){
-//	int thisIdx = *((int*)a);
 	int pid;
 	int parentToChild[2];
 	int childToParent[2];
